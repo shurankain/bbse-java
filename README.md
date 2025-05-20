@@ -1,7 +1,9 @@
 # BBSE — Backward Binary Search Encoding (Java)
 
+[![Maven Central](https://img.shields.io/maven-central/v/com.ohusiev/bbse)](https://central.sonatype.com/artifact/com.ohusiev/bbse)
+
 **Compact, deterministic, and prefix-free encoding for sorted integer domains.**  
-Port of the [Rust implementation](https://crates.io/crates/bbse) with identical behavior and test coverage.
+Port of my previous [Rust implementation](https://crates.io/crates/bbse) with identical behavior and test coverage.
 
 > 📦 Published to Maven Central · ✅ Reversible · 🎯 Midpoint configurable
 
@@ -32,9 +34,6 @@ It’s designed for real-world use in indexing, image compression, embedded syst
   <version>0.1.2</version>
 </dependency>
 ````
-
-**Latest version:**
-[![Maven Central](https://img.shields.io/maven-central/v/com.ohusiev/bbse)](https://central.sonatype.com/artifact/com.ohusiev/bbse)
 
 ---
 
