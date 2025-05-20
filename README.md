@@ -9,9 +9,10 @@ Ported from [Rust version](https://crates.io/crates/bbse) with identical behavio
 
 ## Purpose
 
-This project aims to **learn, understand, and demonstrate algorithmic concepts**
-by building a reusable Java library for binary decision path encoding.  
-Originally developed in Rust, this version is API-compatible and test-aligned.
+BBSE (Backward Binary Search Encoding) provides a lightweight and deterministic method for encoding integers in known sorted ranges using binary decision paths.  
+It is designed for real-world use in indexing, image compression, embedded systems, and anywhere prefix-free representations are beneficial.
+
+This Java version mirrors the original Rust implementation and includes full test coverage.
 
 ---
 
@@ -25,8 +26,8 @@ bbse-java/
 ├── settings.gradle.kts
 ├── README.md
 └── src/
-├── main/java/com/ohusiev/bbse/BBSEncoder.java
-└── test/java/com/ohusiev/bbse/BBSEncoderTest.java
+    ├── main/java/com/ohusiev/bbse/BBSEncoder.java
+    └── test/java/com/ohusiev/bbse/BBSEncoderTest.java
 ````
 
 ---
@@ -41,7 +42,7 @@ bbse-java/
 
 ---
 
-## Maven
+## Installation
 
 ```xml
 <dependency>
@@ -51,7 +52,7 @@ bbse-java/
 </dependency>
 ````
 
-Latest version: [Maven Central › com.ohusiev\:bbse](https://central.sonatype.org)
+Latest version: [![Maven Central](https://img.shields.io/maven-central/v/com.ohusiev/bbse)](https://central.sonatype.com/artifact/com.ohusiev/bbse)
 
 ---
 
@@ -75,6 +76,12 @@ int value = BBSEncoder.decode(0, 16, skewed);
 ```bash
 ./gradlew test
 ```
+
+---
+## Why BBSE?
+
+Traditional integer encodings often rely on fixed-length or entropy-based schemes.
+BBSE offers a middle ground: compact, prefix-free representation without external dictionaries or overhead — ideal for use cases with sorted or bounded domains.
 
 ---
 
