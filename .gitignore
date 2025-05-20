@@ -3,6 +3,7 @@ cat > .gitignore <<EOF
 .gradle/
 build/
 !gradle/wrapper/gradle-wrapper.jar
+gradle.properties
 
 # IntelliJ
 .idea/
