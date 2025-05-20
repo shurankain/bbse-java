@@ -63,7 +63,7 @@ publishing {
     repositories {
         maven {
             name = "central"
-            url = uri("https://central.sonatype.com/api/v1/publish/")
+            url = uri("https://s01.oss.sonatype.org/content/repositories/releases/")
             credentials {
                 username = project.findProperty("ossrhUsername") as String
                 password = project.findProperty("ossrhPassword") as String
