@@ -1,4 +1,5 @@
 plugins {
+    signing
     `java-library`
     `maven-publish`
 }
@@ -31,6 +32,7 @@ publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
+            artifactId = "bbse"
 
             pom {
                 name.set("BBSE Java")
@@ -57,4 +59,20 @@ publishing {
             }
         }
     }
+
+    repositories {
+        maven {
+            name = "central"
+            url = uri("https://central.sonatype.com/api/v1/publish/")
+            credentials {
+                username = project.findProperty("ossrhUsername") as String
+                password = project.findProperty("ossrhPassword") as String
+            }
+        }
+    }
+}
+
+signing {
+    useGpgCmd()
+    sign(publishing.publications["mavenJava"])
 }
