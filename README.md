@@ -1,48 +1,29 @@
 # BBSE — Backward Binary Search Encoding (Java)
 
-Minimal and reversible encoding scheme for sorted integer ranges, based on binary search paths.  
-Ported from [Rust version](https://crates.io/crates/bbse) with identical behavior and design goals.
+**Compact, deterministic, and prefix-free encoding for sorted integer domains.**  
+Port of the [Rust implementation](https://crates.io/crates/bbse) with identical behavior and test coverage.
 
-> 📦 Maven-ready, deterministic, prefix-free, mid-point configurable.
-
----
-
-## Purpose
-
-BBSE (Backward Binary Search Encoding) provides a lightweight and deterministic method for encoding integers in known sorted ranges using binary decision paths.  
-It is designed for real-world use in indexing, image compression, embedded systems, and anywhere prefix-free representations are beneficial.
-
-This Java version mirrors the original Rust implementation and includes full test coverage.
+> 📦 Published to Maven Central · ✅ Reversible · 🎯 Midpoint configurable
 
 ---
 
-## Structure
+## Overview
 
-Standard Gradle layout:
+**BBSE (Backward Binary Search Encoding)** encodes values from a sorted integer range `[start, end)` using binary decision paths — the same path taken by a binary search to locate the target.
 
-```
-bbse-java/
-├── build.gradle.kts
-├── settings.gradle.kts
-├── README.md
-└── src/
-    ├── main/java/com/ohusiev/bbse/BBSEncoder.java
-    └── test/java/com/ohusiev/bbse/BBSEncoderTest.java
-````
+Unlike fixed-length or entropy-based encoding schemes, BBSE provides:
+- ✅ **Prefix-freedom** — no encoded value is a prefix of another.
+- ✅ **Determinism** — no randomness, no state.
+- ✅ **Reversibility** — fully decodable to the original value.
+- ✅ **Midpoint control** — bias the first decision toward a custom value.
 
----
-
-## Features
-
-- ✅ Prefix-free encoding for discrete domains
-- ✅ Reversible `encode(...)` / `decode(...)`
-- ✅ Custom midpoint control (`encodeFrom(...)`)
-- ✅ Stateless, test-covered, allocation-aware
-- ✅ Binary compatible with the original [Rust crate](https://crates.io/crates/bbse)
+It’s designed for real-world use in indexing, image compression, embedded systems, stateless encodings, and bandwidth-constrained protocols.
 
 ---
 
 ## Installation
+
+**Maven:**
 
 ```xml
 <dependency>
@@ -52,39 +33,68 @@ bbse-java/
 </dependency>
 ````
 
-Latest version: [![Maven Central](https://img.shields.io/maven-central/v/com.ohusiev/bbse)](https://central.sonatype.com/artifact/com.ohusiev/bbse)
+**Latest version:**
+[![Maven Central](https://img.shields.io/maven-central/v/com.ohusiev/bbse)](https://central.sonatype.com/artifact/com.ohusiev/bbse)
 
 ---
 
-## Example
+## Usage
 
 ```java
+import com.ohusiev.bbse.BBSEncoder;
+
 List<Boolean> bits = BBSEncoder.encode(0, 16, 5);
-int decoded = BBSEncoder.decode(0, 16, bits);
-System.out.println(decoded); // -> 5
+int value = BBSEncoder.decode(0, 16, bits);
+System.out.println(value); // -> 5
 ```
 
+Use a custom midpoint to optimize for skewed distributions:
+
 ```java
-List<Boolean> skewed = BBSEncoder.encodeFrom(0, 16, 5, 8);
-int value = BBSEncoder.decode(0, 16, skewed);
+List<Boolean> path = BBSEncoder.encodeFrom(0, 16, 5, 8);
+int decoded = BBSEncoder.decode(0, 16, path);
 ```
 
 ---
 
-## Run tests
+## Features
+
+* ✅ Prefix-free encoding of bounded integers
+* ✅ Reversible with `encode(...)` / `decode(...)`
+* ✅ Custom midpoint support with `encodeFrom(...)`
+* ✅ Stateless and test-covered
+* ✅ Identical to the [Rust version](https://crates.io/crates/bbse) (bit-for-bit)
+* ✅ No external dependencies
+
+---
+
+## Build & Test
+
+Standard Maven workflow:
 
 ```bash
-./gradlew test
+mvn clean verify
 ```
 
----
-## Why BBSE?
+Includes tests and PGP-signed JARs with sources and Javadoc.
 
-Traditional integer encodings often rely on fixed-length or entropy-based schemes.
-BBSE offers a middle ground: compact, prefix-free representation without external dictionaries or overhead — ideal for use cases with sorted or bounded domains.
+---
+
+## Project Layout
+
+```
+bbse-java/
+├── src/
+│   ├── main/java/com/ohusiev/bbse/BBSEncoder.java
+│   └── test/java/com/ohusiev/bbse/BBSEncoderTest.java
+├── pom.xml
+├── LICENSE
+└── README.md
+```
 
 ---
 
 ## License
 
 [MIT](LICENSE)
+
