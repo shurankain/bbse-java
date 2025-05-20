@@ -5,28 +5,34 @@ import java.util.List;
 
 /**
  * <h2>BBSE — Backward Binary Search Encoding</h2>
- * <p>
- * A compact, reversible, and prefix-free encoding scheme for values in a sorted integer range [start, end).
+ *
+ * <p>A compact, reversible, and prefix-free encoding scheme for values in a sorted integer range [start, end).
  * This scheme encodes the binary decision path taken during a binary search to locate the target value.
  *
- * <p>This encoding is:
+ * <p><strong>Key properties:</strong>
  * <ul>
  *     <li><strong>Prefix-free</strong>: no encoded path is a prefix of another</li>
- *     <li><strong>Deterministic</strong>: depends only on range and value, no randomness or state</li>
+ *     <li><strong>Deterministic</strong>: depends only on range and value</li>
  *     <li><strong>Reversible</strong>: fully decodable to the original value</li>
- *     <li><strong>Midpoint-biasable</strong>: supports custom midpoint to optimize for skewed distributions</li>
+ *     <li><strong>Midpoint-biasable</strong>: supports custom midpoint for skewed distributions</li>
  * </ul>
  *
- * <p>Intended use cases include:
+ * <p><strong>Use cases:</strong>
  * <ul>
- *     <li>compact encoding of range-bounded integers</li>
- *     <li>compression, entropy coding, or indexing</li>
- *     <li>stateless communication of sorted-domain values</li>
+ *     <li>Compact encoding of bounded integers</li>
+ *     <li>Compression, entropy coding, and indexing</li>
+ *     <li>Stateless encoding of sorted-domain values</li>
  * </ul>
+ *
+ * <p>This class is static-only and cannot be instantiated.
  *
  * <p>See {@link #encode}, {@link #encodeFrom}, and {@link #decode}.
  */
 public class BBSEncoder {
+
+    private BBSEncoder() {
+        // Utility class, do not instantiate
+    }
 
     /**
      * Encodes a value within the given range using the default midpoint.
