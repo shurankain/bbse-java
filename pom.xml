@@ -5,12 +5,12 @@
 
     <groupId>com.ohusiev</groupId>
     <artifactId>bbse</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <packaging>jar</packaging>
 
-    <name>BBSE Java</name>
+    <name>BBSE</name>
     <description>Binary search encoding for sorted integer domains.</description>
-    <url>https://github.com/ohusiev/bbse-java</url>
+    <url>https://github.com/shurankain/bbse-java</url>
     <inceptionYear>2025</inceptionYear>
 
     <licenses>
