@@ -29,7 +29,7 @@ It’s designed for real-world use in indexing, image compression, embedded syst
 <dependency>
   <groupId>com.ohusiev</groupId>
   <artifactId>bbse</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
 </dependency>
 ````
 

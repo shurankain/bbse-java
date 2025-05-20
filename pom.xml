@@ -5,7 +5,7 @@
 
     <groupId>com.ohusiev</groupId>
     <artifactId>bbse</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <packaging>jar</packaging>
 
     <name>BBSE Java</name>
@@ -29,9 +29,9 @@
     </developers>
 
     <scm>
-        <url>https://github.com/ohusiev/bbse-java</url>
-        <connection>scm:git:git://github.com/ohusiev/bbse-java.git</connection>
-        <developerConnection>scm:git:ssh://github.com:ohusiev/bbse-java.git</developerConnection>
+        <url>https://github.com/shurankain/bbse-java</url>
+        <connection>scm:git:git://github.com/shurankain/bbse-java.git</connection>
+        <developerConnection>scm:git:ssh://github.com:shurankain/bbse-java.git</developerConnection>
     </scm>
 
     <properties>
