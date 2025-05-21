@@ -90,8 +90,9 @@ bbse-java/
 ├── src/
 │   ├── main/java/com/ohusiev/bbse/BBSEncoder.java
 │   └── test/java/com/ohusiev/bbse/BBSEncoderTest.java
-├── pom.xml
+├── CHANGELOG.md
 ├── LICENSE
+├── pom.xml
 └── README.md
 ```
 
